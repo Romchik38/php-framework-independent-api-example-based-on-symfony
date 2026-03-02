@@ -1,16 +1,26 @@
-# readme
+# Readme
 
 Contents:
 
+- Description
+- Development goals
 - Incoming task
 - Install
 - Frontend form
 - Backend structure
 - Extension
 
+## Description
+
+Framework-independent API example based on Symfony.
+
+## Development goals
+
+Development goals – to demonstrate how applications can be built without being tied to a specific framework.
+
 ## Incoming task
 
-[pdf](./docs/Coding%20Test%20—%20Junior%20PHP%20Developer%20(Symfony).pdf)
+[pdf](./docs/incoming-task.pdf)
 
 ## Install
 
@@ -21,7 +31,13 @@ Contents:
     docker compose up -d
     ```
 
-2. Check - `localhost:8000`.
+2. Composer install:
+
+   ```bash
+   composer install
+   ```
+
+3. Check - `localhost:8000`.
 
 ## Frontend form
 
