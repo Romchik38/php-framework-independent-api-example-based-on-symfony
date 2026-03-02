@@ -37,7 +37,7 @@ Development goals – to demonstrate how applications can be built without being
    composer install
    ```
 
-3. Check - `localhost:8000`.
+3. Check - [localhost:8000](http://localhost:8000)
 
 ## Frontend form
 
