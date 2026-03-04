@@ -103,9 +103,9 @@ All classes are covered by tests. You can use `vendor/bin/phpunit`  to run tests
 
 ## A similar example based on Laravel
 
-You can check a similar example based on Symfony [here](https://github.com/Romchik38/php-framework-independent-api-example-based-on-symfony).
+You can check a similar example based on Laravel [here](https://github.com/Romchik38/php-framework-independent-api-example-based-on-laravel).
 
-Application and domain layers are identical.
+`Application` and `domain` layers are identical.
 
 Differences:
 
