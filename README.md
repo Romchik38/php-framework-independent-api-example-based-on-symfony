@@ -9,6 +9,8 @@ Contents:
 - Frontend form
 - Backend structure
 - Extension
+- Tests
+- A similar example based on Laravel
 
 ## Description
 
@@ -63,15 +65,20 @@ Calculate command  |        |       View Dto
 Find via VO Slug   |        |       Carrier
                    \/       |
                 Carrier Repository
-                   |
-Use Symfony        |         
-config as adata    |
-container          |
-                   \/   
+                       /\
+Use Symfony            |         
+config as adata        |
+container              |
+                       \/   
                   Symfony config
 ```
 
 ## Extension
+
+You can extend the aplication by:
+
+- adding a new carrier
+- changing the storage
 
 ### Adding a new carrier
 
@@ -89,3 +96,21 @@ The Carrier service depends on the repository interface.
 
 1. Create a new repository
 2. Register it as an alias in the [services.yaml](./config/services.yaml)
+
+## Tests
+
+All classes are covered by tests. You can use `vendor/bin/phpunit`  to run tests inside a container. Also check [test dir](./tests/).
+
+## A similar example based on Laravel
+
+You can check a similar example based on Symfony [here](https://github.com/Romchik38/php-framework-independent-api-example-based-on-symfony).
+
+Application and domain layers are identical.
+
+Differences:
+
+| layer       | this app | laravel example |
+|-------------|----------|-----------------|
+| controller  | symfony  | laravel         |
+| storage     | config   | mysql           |
+| template    | twig     | blade           |
