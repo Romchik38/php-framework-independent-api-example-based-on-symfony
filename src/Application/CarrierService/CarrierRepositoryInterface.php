@@ -11,6 +11,7 @@ interface CarrierRepositoryInterface
 {
     /**
      * @throws NoSuchCarrierException
+     * @throws RepositoryException
      */
     public function findCarrierBySlug(Slug $slug): Carrier;
 

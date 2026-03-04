@@ -13,7 +13,7 @@ final class PackGroupCalculator implements ShippingCostCalculatorInterface
 {
     public function calculateShippingCosts(Weight $weight): Price
     {
-        $weight = round($weight->value, 0, RoundingMode:: AwayFromZero);
+        $weight = round($weight->value, 0, RoundingMode::AwayFromZero);
 
         return new Price($weight);
     }

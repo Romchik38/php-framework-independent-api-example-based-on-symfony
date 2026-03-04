@@ -6,6 +6,4 @@ namespace App\Application\CarrierService\CalculateShippingCosts;
 
 use RuntimeException;
 
-final class CalculateException extends RuntimeException
-{
-}
+final class CalculateException extends RuntimeException {}

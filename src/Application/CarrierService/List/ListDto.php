@@ -12,8 +12,7 @@ final class ListDto
     public function __construct(
         public readonly Name $carrierName,
         public readonly Slug $carrierSlug,
-    ) {
-    }
+    ) {}
 
     public function getName(): string
     {

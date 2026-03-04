@@ -9,16 +9,17 @@ use InvalidArgumentException;
 final class CalculateCommand
 {
     public const slugField = 'carrier';
+
     public const weightField = 'weightKg';
 
     public function __construct(
         public readonly string $carrierSlug,
         public readonly string $weight
-    ) {
-    }
+    ) {}
 
     /**
      * @param array<string|int,mixed>
+     *
      * @throws InvalidArgumentException
      */
     public static function fromHash(array $hash): self
@@ -26,11 +27,12 @@ final class CalculateCommand
         $slug = $hash[self::slugField] ?? '';
         $weight = $hash[self::weightField] ?? '';
         if (gettype($slug) !== 'string') {
-            throw new InvalidArgumentException('param carrier slug is invalid');
+            $slug = (string) $slug;
         }
         if (gettype($weight) !== 'string') {
-            throw new InvalidArgumentException('param weight is invalid');
+            $weight = (string) $weight;
         }
+
         return new self($slug, $weight);
     }
 }

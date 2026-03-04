@@ -7,20 +7,19 @@ namespace App\Application\CarrierService\CalculateShippingCosts;
 use App\Domain\Carrier\VO\Price;
 use App\Domain\Carrier\VO\Slug;
 use App\Domain\Carrier\VO\Weight;
-use App\Application\CarrierService\CalculateShippingCosts\CalculateCommand;
 use JsonSerializable;
 
 final class CalculateView implements JsonSerializable
 {
     public const PRICE_FIELD = 'price';
+
     public const CURRENCY_FIELD = 'currency';
 
     public function __construct(
         public readonly Slug $carrierSlug,
         public readonly Weight $weight,
         public readonly Price $price
-    ) {
-    }
+    ) {}
 
     public function getSlug(): string
     {
@@ -43,7 +42,7 @@ final class CalculateView implements JsonSerializable
             CalculateCommand::slugField => $this->getSlug(),
             CalculateCommand::weightField => $this->getWeight(),
             $this::CURRENCY_FIELD => 'EUR',
-            $this::PRICE_FIELD => $this->getPrice()
+            $this::PRICE_FIELD => $this->getPrice(),
         ];
     }
 }
