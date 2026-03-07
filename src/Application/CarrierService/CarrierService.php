@@ -47,15 +47,14 @@ final class CarrierService
     /**
      * @return array<int, ListDto>
      *
-     * @throws ListException
+     * @throws ListException - On database error
      */
     public function list(): array
     {
         try {
             $carriers = $this->repository->list();
         } catch (RepositoryException $e) {
-            // log database error here
-            throw new ListException('data storage error');
+            throw new ListException($e->getMessage());
         }
 
         $dtos = [];
