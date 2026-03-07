@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Tests\Unit\Application\CarrierService;
 
 use App\Application\CarrierService\CalculateShippingCosts\CalculateCommand;
-use App\Application\CarrierService\CalculateShippingCosts\CalculateException;
 use PHPUnit\Framework\TestCase;
 use App\Application\CarrierService\CarrierService;
+use App\Application\CarrierService\NoSuchCarrierException;
 use App\Domain\Carrier\Carrier;
 use App\Domain\Carrier\VO\Name;
 use App\Domain\Carrier\VO\Price;
@@ -54,7 +54,7 @@ class CarrierServiceTest extends TestCase
 
         $carrierService = new CarrierService($repository);
 
-        $this->expectException(CalculateException::class);
+        $this->expectException(NoSuchCarrierException::class);
         $carrierService->calculateShippingCosts($command);
     }
 }

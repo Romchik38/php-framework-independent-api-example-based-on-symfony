@@ -20,21 +20,19 @@ final class CarrierService
     ) {}
 
     /**
-     * @throws CalculateException
+     * @throws CalculateException - On database error
+     * @throws InvalidArgumentException - Invalid user input
+     * @throws NoSuchCarrierException - Invalid carrier
      */
     public function calculateShippingCosts(CalculateCommand $command): CalculateView
     {
+        $slug = new Slug($command->carrierSlug);
+        $weight = Weight::fromString($command->weight);
+
         try {
-            $slug = new Slug($command->carrierSlug);
-            $weight = Weight::fromString($command->weight);
             $carrier = $this->repository->findCarrierBySlug($slug);
-        } catch (NoSuchCarrierException|InvalidArgumentException  $e) {
-            // display a message to user
-            throw new CalculateException($e->getMessage());
         } catch (RepositoryException $e) {
-            // log database error here, do something with $e
-            // display a message to user
-            throw new CalculateException('data storage error');
+            throw new CalculateException($e->getMessage());
         }
 
         $price = $carrier->calculateShippingPriceByWeight($weight);
